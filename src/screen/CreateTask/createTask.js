@@ -1,10 +1,18 @@
 //import liraries
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
 import BackHeader from '../../components/back-header';
-import { CustomFontText } from '../../components/customFontText/CustomFontText';
+import ColorComponent from '../../components/color';
+import {CustomFontText} from '../../components/customFontText/CustomFontText';
 import Search from '../../components/search/search';
-import { COLORS } from '../../utils/Colors';
+import {COLORS} from '../../utils/Colors';
 
 // create a component
 const CreateScreen = () => {
@@ -12,9 +20,9 @@ const CreateScreen = () => {
     <View style={styles.container}>
       <View style={{backgroundColor: '#7646FF'}}>
         <BackHeader />
-        <Search />
+        {/* <Search /> */}
       </View>
-      <View>
+      <View style={{}}>
         <TextInput
           placeholder="Task Name"
           style={{
@@ -54,6 +62,16 @@ const CreateScreen = () => {
         <View style={{padding: 20}}>
           <CustomFontText>Priority</CustomFontText>
         </View>
+        <FlatList
+          keyExtractor={index => Math.random() + index}
+          data={[1, 2, 3, 4]}
+          renderItem={(item, index) => {
+            return <ColorComponent key={index} style={{marginRight: 10}} />;
+          }}
+          horizontal
+          style={{backgroundColor: COLORS.white, padding: 20}}
+          contentContainerStyle={{alignItems: 'center'}}
+        />
         <TextInput
           placeholder="Notification"
           style={{
@@ -64,9 +82,19 @@ const CreateScreen = () => {
           }}
         />
       </View>
-      <TouchableOpacity style={{alignItems: 'center', justifyContent:'flex-end', flex: 1}}>
-          <CustomFontText>ADD</CustomFontText>
-      </TouchableOpacity>
+      <View style={{flex: 1, justifyContent: 'flex-end'}}>
+        <TouchableOpacity
+          style={{
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            backgroundColor: 'red',
+            padding: 20,
+          }}>
+          <CustomFontText style={{color: COLORS.white, fontSize: 18}}>
+            ADD
+          </CustomFontText>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

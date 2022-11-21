@@ -8,12 +8,14 @@ import {COLORS} from '../../../utils/Colors';
 import ColorComponent from '../../../components/color';
 import Octicons from 'react-native-vector-icons/Octicons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
 
 // create a component
 const ItemTask = () => {
+  const navigation = useNavigation();
   return (
     <View style={{borderTopWidth: 0.2, borderBottomWidth: 0.2, borderColor: '#CCCCCC'}}>
-      <View
+      <TouchableOpacity onPress={() => navigation.navigate('Detail')}
         style={{
           flexDirection: 'row',
           backgroundColor: COLORS.white,
@@ -50,7 +52,7 @@ const ItemTask = () => {
             <Entypo name="dots-three-vertical" size={25} />
           </TouchableOpacity>
         </View>
-      </View>
+      </TouchableOpacity>
       <View></View>
     </View>
   );

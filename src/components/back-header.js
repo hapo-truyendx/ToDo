@@ -6,9 +6,11 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {CustomFontText} from './customFontText/CustomFontText';
 import {COLORS} from '../utils/Colors';
+import {useNavigation} from '@react-navigation/native';
 
 // create a component
 const BackHeader = ({title}) => {
+  const navigate = useNavigation();
   return (
     <View style={styles.container}>
       <View
@@ -24,8 +26,12 @@ const BackHeader = ({title}) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <AntDesign name="arrowleft" size={35} color={COLORS.white} />
-          <CustomFontText style={{color: COLORS.white, fontSize: 25, paddingLeft: 15,}}>
+          <TouchableOpacity onPress={() => navigate.goBack()}>
+            <AntDesign name="arrowleft" size={35} color={COLORS.white} />
+          </TouchableOpacity>
+
+          <CustomFontText
+            style={{color: COLORS.white, fontSize: 25, paddingLeft: 15}}>
             New Task
           </CustomFontText>
         </View>
