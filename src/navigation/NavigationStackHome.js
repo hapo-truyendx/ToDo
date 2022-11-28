@@ -2,8 +2,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CreateScreen from '../screen/CreateTask/createTask';
 import DetailTaskScreen from '../screen/DetailTask/detailTask';
 import IntroductionScreen from '../screen/HKApp/intro';
-import LoginScreen from '../screen/HKApp/login';
-import RegisterScreen from '../screen/HKApp/register';
 import HomeScreen from '../screen/Home/home';
 
 const Stack = createNativeStackNavigator();
@@ -22,22 +20,22 @@ const NavigationStack = () => {
         },
       }}>
       <Stack.Screen
-        name="Intro"
+        name="Home"
         component={IntroductionScreen}
         options={{
           headerShown: false,
         }}
       />
       <Stack.Screen
-        name="Login"
-        component={LoginScreen}
+        name="Create"
+        component={CreateScreen}
         options={{
           headerShown: false,
         }}
       />
       <Stack.Screen
-        name="Register"
-        component={RegisterScreen}
+        name="Detail"
+        component={DetailTaskScreen}
         options={{
           headerShown: false,
         }}
