@@ -9,7 +9,7 @@ import {COLORS} from '../utils/Colors';
 import {useNavigation} from '@react-navigation/native';
 
 // create a component
-const BackHeader = ({title}) => {
+const BackHeader = ({title, isAdd}) => {
   const navigate = useNavigation();
   return (
     <View style={styles.container}>
@@ -35,7 +35,7 @@ const BackHeader = ({title}) => {
             New Task
           </CustomFontText>
         </View>
-        <View>
+        <View style={{flexDirection: 'row'}}>
           <TouchableOpacity>
             <Ionicons
               name="notifications-outline"
@@ -43,6 +43,11 @@ const BackHeader = ({title}) => {
               color={COLORS.white}
             />
           </TouchableOpacity>
+          { isAdd && <TouchableOpacity
+            style={{paddingLeft: 8}}
+            onPress={() => navigate.navigate('Create')}>
+            <Ionicons name="add" size={35} color={COLORS.white} />
+          </TouchableOpacity>}
         </View>
       </View>
     </View>
