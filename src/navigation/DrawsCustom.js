@@ -11,9 +11,11 @@ import image from '../assets/image';
 import {BoldText} from '../components/customFontText/BoldText';
 import {CustomFontText} from '../components/customFontText/CustomFontText';
 import {COLORS} from '../utils/Colors';
+import { useNavigation } from '@react-navigation/native';
 
 // create a component
 const DrawCustom = props => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View
@@ -59,7 +61,7 @@ const DrawCustom = props => {
             </CustomFontText>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}} style={styles.draw}>
+        <TouchableOpacity onPress={() => {navigation.navigate("Done")}} style={styles.draw}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Ionicons name="checkbox-outline" size={22} />
             <CustomFontText
